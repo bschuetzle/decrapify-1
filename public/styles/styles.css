@@ -54,5 +54,36 @@ ul.dropdown-menu {
     height: 60px;
     transition: background-color .5s ease 0s;
 }
-
 }
+
+/******************
+Steps-How to guide
+*******************/
+
+.steps-box {
+  height: 400px;
+  /*background-color: pink;*/
+}
+
+.steps {
+  /*background-color: yellow;*/
+  padding-top: 30px;
+  margin-top: 30px;
+  height: 225px;
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+}
+
+.steps1 {
+  padding-top: 30px;
+  padding-bottom: 18px;
+}
+
+/*p {
+  background-color: teal;
+}
+
+img {
+  background-color: purple;
+}*/
