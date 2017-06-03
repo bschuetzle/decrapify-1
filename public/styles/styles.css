@@ -4,8 +4,11 @@ section
 }
 .banner
 {
-  background:red;
-  min-height:200px;
+  background-image:url("https://media3.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/TODAY-ready/ss-140710-storage-home/ss-140710-storage-home-tease.today-ss-slide-desktop.jpg");
+  width:100%;
+  height: 100%;
+  background-size: cover;
+  min-height:400px;
 }
 .banner .row
 {
