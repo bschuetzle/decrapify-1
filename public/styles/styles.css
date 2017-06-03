@@ -1,7 +1,3 @@
-section
-{
-  background:yellow;
-}
 .banner
 {
   background-image:url("https://media3.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/TODAY-ready/ss-140710-storage-home/ss-140710-storage-home-tease.today-ss-slide-desktop.jpg");
@@ -40,7 +36,7 @@ section
 }
 
 ul.dropdown-menu {
-    background-color: black;
+    background-color: white;
 }
 
 
