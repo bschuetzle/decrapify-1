@@ -2,11 +2,9 @@
 var express = require('express'), app = express();
 var controllers = require('./controllers');
 var bodyParser = require('body-parser');
-
+var moment = require('moment');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 app.use(express.static('public'));
 
 
@@ -14,7 +12,6 @@ app.use(express.static('public'));
 /**********
  * ROUTES *
  **********/
-
 
 app.get('/', function homepage(req, res) {
    res.sendFile(__dirname + '/views/index.html');
@@ -27,6 +24,6 @@ app.get('/', function homepage(req, res) {
  **********/
 
 // listen on the port that Heroku prescribes (process.env.PORT) OR port 3000
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log('Express server is up and running on http://localhost:3000/');
 });
