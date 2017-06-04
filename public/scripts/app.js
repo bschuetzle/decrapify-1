@@ -33,5 +33,6 @@ $(document).ready(function() {
   });
 
   $('.dropdown-toggle').dropdown();
+  $('.project').modal(options)
 
 });
