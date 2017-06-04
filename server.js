@@ -23,6 +23,12 @@ app.get('/api/items', controllers.items.index);
 // "POST" api for items
 app.post('/api/items', controllers.items.create)
 
+// "PUT" api for items
+app.put('/api/items/:id', controllers.items.update)
+
+// "DELETE" api for items
+app.delete('/api/items/:id', controllers.items.destroy)
+
 
 
 /**********
