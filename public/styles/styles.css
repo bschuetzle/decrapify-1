@@ -1,3 +1,7 @@
+/*********
+* BANNERS
+*********/
+
 .banner {
   background-image:url("https://media3.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/TODAY-ready/ss-140710-storage-home/ss-140710-storage-home-tease.today-ss-slide-desktop.jpg");
   width:100%;
@@ -5,10 +9,12 @@
   background-size: cover;
   min-height:600px;
 }
+
 .banner .row {
   text-align:center;
   margin-top:50px;
 }
+
 .banner h1 {
   color:white;
   padding-top: 40px;
@@ -20,10 +26,28 @@
   background-color: rgb(213, 126, 46);
 }
 
+.banner2 {
+  background-image:url("https://media3.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/TODAY-ready/ss-140710-storage-home/ss-140710-storage-home-tease.today-ss-slide-desktop.jpg");
+  width:100%;
+  height: 100%;
+  background-size: cover;
+  min-height:300px;
+}
 
-/***********************************************************************
+.banner2 .row {
+  text-align:center;
+  margin-top:50px;
+}
+
+.banner2 h1 {
+  color:white;
+  padding-top: 40px;
+}
+
+
+/************************
 *  OPAQUE NAVBAR SECTION
-***********************************************************************/
+*************************/
 .opaque-navbar {
     background-color: rgba(0,0,0,0.5);
   /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
@@ -56,7 +80,7 @@ ul.dropdown-menu {
 }*/
 
 /******************
-Steps-How to guide
+* Steps-How to guide
 *******************/
 
 .steps-box {
@@ -82,7 +106,7 @@ Steps-How to guide
 }
 
 /****************
-Modal
+* Modal
 *****************/
 
 .modal-body  {
@@ -94,4 +118,20 @@ Modal
 }
 .modal-body {
     margin-left: 15px;
+}
+/*************
+* Items-list
+**************/
+
+.items-box {
+  height: 300px;
+}
+
+.img {
+  height: 100px;
+  width: 50px;
+}
+
+.vote {
+  text-align: center;
 }
