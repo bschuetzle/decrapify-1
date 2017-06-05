@@ -4,6 +4,8 @@ $(document).ready(function() {
 
   console.log("JQuery is working!");
 
+  renderDaysRemainingMsg("5934b14527172844a5eac072");
+
 
   // testing moment.js
   var now = moment();
@@ -36,3 +38,27 @@ $(document).ready(function() {
   $('.project').modal(options)
 
 });
+
+
+
+function renderDaysRemainingMsg(projectID) {
+
+  $.ajax({
+    method: 'GET',
+    url: '/api/projects/' + projectID,
+    success: function(json) {
+
+      var startDate = json[0].startDate;
+      var numDaysToComplete = json[0].numDaysToComplete;
+      
+      console.log("start date:", startDate);
+      console.log("days to complete:", numDaysToComplete);
+
+    },
+    error: function() {
+      console.log("error retreiving project");
+    }
+  });
+
+
+}
