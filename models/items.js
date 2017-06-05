@@ -4,10 +4,20 @@ Schema = mongoose.Schema;
 var ItemsSchema = new Schema (
   {
     description: String,
+    project: {
+      type: Schema.Types.ObjectId,
+      ref: 'Project'
+    },
     photoURL: String,
     category: String,
-    upVotes: Number,
-    downVotes: Number,
+    upVotes: {
+       type: Number,
+       default: 0
+     },
+    downVotes: {
+       type: Number,
+       default: 0
+     },
     action: String
   }
 )

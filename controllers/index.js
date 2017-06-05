@@ -1,3 +1,4 @@
 module.exports = {
-  items: require('./itemsController')
+  items: require('./itemsController'),
+  projects: require('./projectsController')
 }
