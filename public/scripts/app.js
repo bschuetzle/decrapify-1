@@ -26,14 +26,57 @@ $(document).ready(function() {
   $('.dropdown-toggle').dropdown();
 
   // Project  Modal
-  $('.project').on('click', '.add-project', handleAddNewProject)
-  $('.project').modal(options);
-
+  // $('.project').on('click', '.add-project', handleAddNewProject)
+  // $('.project').modal(options);
 
   // Items Page Click Event
-  $('items-list').on('click', '.add-item', handleAddNewItem)
+  // $('items-list').on('click', '.add-item', handleAddNewItem)
 
 });
+
+$.ajax({
+  method: 'GET',
+  url: '/api/items',
+  success: renderMultipleItems
+});
+
+function renderMultipleItems(items) {
+  items.forEach(function(item) {
+    renderItem(item);
+  });
+}
+
+function renderItem(item) {
+  console.log('rendering item', item);
+
+  var itemsHtml = (`
+<!-- items container! -->
+<div class="col-md-3">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <!-- image frame -->
+      <div class="row" data-items-id="${item._id}">
+        <div class="col-md-10 col-md-offset-1 items-header">
+          <h3>Item</h3>
+          <span class='item-description'>${item.description}<br>${item.category}</span>
+        </div>
+        <div class="col-md-10 col-md-offset-1 items-image">
+          <img src="${item.photoURL}" alt="item image">
+        </div>
+      </div>
+      <!-- yes or no box -->
+      <div class='panel-footer'>
+        <div class='panel-footer'>
+          <button class='btn btn-primary yes'>Yes!</button>
+          <button class='btn btn-danger no!'>No!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`);
+$('#items-list').prepend(itemsHtml);
+}
 
 
 
@@ -55,6 +98,4 @@ function renderDaysRemainingMsg(projectID) {
       console.log("error retreiving project");
     }
   });
-
-
 }
