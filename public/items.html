@@ -44,6 +44,7 @@
     </div>
   </div>
 
+<!--Banner-->
   <section class="banner2">
     <div class="container-fluid">
       <div class="row">
@@ -52,56 +53,59 @@
     </div>
   </section>
 
-  <section class="container">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-1">
-      <h2>Items</h2>
+<!--items-modal-->
+<section class="new-item">
+  <!-- Button trigger modal -->
+  <button class="btn btn-primary btn-lg start" data-toggle="modal" data-target="#item-modal">Add Item</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="item-modal" tabindex="-1" role="dialog" aria-labelledby="#itemModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="itemModalLabel">New DeCrapify Item</h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body post-items">
+          <form role="form">
+            <div class="form-group">
+              <label for="description">description</label>
+              <input type="text" class="form-control" id="" placeholder="description" />
+            </div>
+            <div class="form-group">
+              <label for="project">project</label>
+              <input type="text" class="form-control" id="" placeholder="project" />
+            </div>
+            <div class="form-group">
+              <label for="photo url">image url</label>
+              <input type="text" class="form-control" id="" placeholder="photoURL" />
+            </div>
+            <div class="form-group">
+              <label for="photo url">category</label>
+              <input type="text" class="form-control" id="" placeholder="category" />
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!-- items container! -->
-  <div id='items-list'></div>
-
-  <div class="row add-item" data-items-id="${}">
-   <div class="col-md-4 col-md-offset-1">
-     <div class="panel panel-default">
-       <div class="panel-body">
-       <!-- begin album internal row -->
-         <div class='row'>
-           <div class="col-md-3 col-xs-12 items-image">
-             <img src="https://s-media-cache-ak0.pinimg.com/736x/e3/b5/7b/e3b57bd032568349699b2b9dee55d9de.jpg" alt="item image">
-           </div>
-         </div>
-         <!-- yes or no box -->
-         <div class='panel-footer'>
-           <div class='panel-footer vote'>
-             <button class='btn btn-primary yes'>Yes!</button>
-             <button class='btn btn-danger no!'>No!</button>
-           </div>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
-
 </section>
 
-    <!-- <div class="container items-box">
-      <div class="row">
-        <ul class = "items-list">
-          <li class="add-item">
-              <img src="https://s-media-cache-ak0.pinimg.com/736x/e3/b5/7b/e3b57bd032568349699b2b9dee55d9de.jpg">
-                <div class="items-info">
-                  <h3>A chair I use to know</h3>
-                  <span>Should it stay or should it go now?</span>
-                  <span>Yes or No?</span>
-                </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div> -->
+  <section class="container-fluid items-box">
+    <div id='items-list'></div>
 
-
-
+  </section>
 </body>
