@@ -17,17 +17,34 @@ app.get('/', function homepage(req, res) {
    res.sendFile(__dirname + '/views/index.html');
 });
 
-// "GET" api for items
+// ITEMS
+// -----
+
+// "GET" api for all items
 app.get('/api/items', controllers.items.index);
 
 // "POST" api for items
-app.post('/api/items', controllers.items.create)
+app.post('/api/items', controllers.items.create);
 
 // "PUT" api for items
-app.put('/api/items/:id', controllers.items.update)
+app.put('/api/items/:id', controllers.items.update);
 
 // "DELETE" api for items
-app.delete('/api/items/:id', controllers.items.destroy)
+app.delete('/api/items/:id', controllers.items.destroy);
+
+
+// PROJECTS
+// --------
+
+// "GET" api for all projects
+app.get('/api/projects', controllers.projects.index);
+
+// "GET" api for single project by id
+app.get('/api/projects/:id', controllers.projects.show);
+
+// "POST" api for projects
+app.post('/api/projects', controllers.projects.create);
+
 
 
 
