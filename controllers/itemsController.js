@@ -4,7 +4,7 @@ var controllers = require('../controllers');
 // GET /api/items
 function index(req, res) {
 
-  db.Item.find()
+  db.Item.find({})
     .populate('project')
     .exec(function(err, items) {
       if (err) {
@@ -14,6 +14,19 @@ function index(req, res) {
     });
 
 }
+
+function projectitemsindex(req, res) {
+
+  projectID = req.params.id;
+  db.Item.find( { project: { _id: projectID } }, function(err, items) {
+    if (err) {
+      console.log("index error: " + err);
+    }
+    res.json(items);
+  });
+
+}
+
 
 // POST /api/items
 function create(req, res) {
@@ -53,7 +66,7 @@ function update(req, res) {
 
 }
 
-// DELETE /api/items/:itemId
+// DELETE /api/items/:id
 function destroy(req, res) {
 
   itemID = req.params.id;
@@ -68,5 +81,6 @@ module.exports = {
   index: index,
   create: create,
   update: update,
-  destroy: destroy
+  destroy: destroy,
+  projectitemsindex: projectitemsindex
 };
