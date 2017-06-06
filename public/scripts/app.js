@@ -86,25 +86,24 @@ $.ajax({
   success: renderMultipleItems
 });
 
-<<<<<<< HEAD
 function renderMultipleItems(items) {
   items.forEach(function(item) {
     renderItem(item);
   });
 }
 
-$('#item-modal').on('submit', function(e) {
-  e.preventDefault();
-  var formData = $(this).serialize();
-  console.log('formData', formData);
-  $.post('/api/items', formData, function(item) {
-    console.log('item after POST', item);
-    renderItem(item);  //render the server's response
-  });
-  $(this).trigger("reset");
-});
-
-var $itemModal = $('#item-modal');
+// $('#item-modal').on('submit', function(e) {
+//   e.preventDefault();
+//   var formData = $(this).serialize();
+//   console.log('formData', formData);
+//   $.post('/api/items', formData, function(item) {
+//     console.log('item after POST', item);
+//     renderItem(item);  //render the server's response
+//   });
+//   $(this).trigger("reset");
+// });
+//
+// var $itemModal = $('#item-modal');
 
 console.log($itemModal.description);
 
