@@ -42,8 +42,22 @@ function renderMultipleItems(items) {
   });
 }
 
-function renderItem(item) {
+$('#item-modal').on('submit', function(e) {
+  e.preventDefault();
+  var formData = $(this).serialize();
+  console.log('formData', formData);
+  $.post('/api/items', formData, function(item) {
+    console.log('item after POST', item);
+    renderItem(item);  //render the server's response
+  });
+  $(this).trigger("reset");
+});
 
+var $itemModal = $('#item-modal');
+
+console.log($itemModal.description);
+
+function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
@@ -72,21 +86,6 @@ function renderItem(item) {
     `);
     $('#items-list').prepend(itemsHtml);
 }
-console.log($('#item-modal'));
-
-
-$('#item-modal').on('submit', function(e) {
-  e.preventDefault();
-  var formData = $(this).serialize();
-  console.log('formData', formData);
-  $.post('/api/items', formData, function(item) {
-    console.log('item after POST', item);
-    renderItem(item);  //render the server's response
-  });
-  $(this).trigger("reset");
-});
-
-
 
 function renderDaysRemainingMsg(projectID) {
 
