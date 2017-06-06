@@ -32,6 +32,9 @@ app.put('/api/items/:id', controllers.items.update);
 // "DELETE" api for items
 app.delete('/api/items/:id', controllers.items.destroy);
 
+// GET api for all items for a specific project
+app.get('/api/projects/:id/items', controllers.items.projectitemsindex);
+
 
 // PROJECTS
 // --------

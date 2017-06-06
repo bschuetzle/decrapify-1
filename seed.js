@@ -6,48 +6,38 @@ var db = require('./models');
 
 var items_list = [
   {
-    description: "Basketball",
-    project: "Organize Garage",
-    photoURL: "http://i.imgur.com/basketball.jpg",
-    category: "Sporting Goods",
-    upVotes: 2,
-    downVotes: 10,
+    description: "Wine Cork Cage",
+    project: "Kitchen Klutter",
+    photoURL: "https://dl.dropboxusercontent.com/s/q2dg2ziufdg8b26/wine_cork_cage.jpg?dl=0",
+    category: "Miscellaneous",
     action: "Sell"
   },
   {
-    description: "Surfboard",
-    project: "Organize Garage",
-    photoURL: "http://i.imgur.com/surfboard.jpg",
-    category: "Sporting Goods",
-    upVotes: 6,
-    downVotes: 4,
+    description: "Cheese Koozie",
+    project: "Kitchen Klutter",
+    photoURL: "https://dl.dropboxusercontent.com/s/7bjb0zibl46hg09/cheese_koozie.jpg?dl=0",
+    category: "Miscellaneous",
     action: "Keep"
   },
   {
-    description: "VCR",
-    project: "Organize Garage",
-    photoURL: "http://i.imgur.com/vcr.jpg",
-    category: "Electronics",
-    upVotes: 0,
-    downVotes: 6,
+    description: "Buddha Novelty Drink",
+    project: "Kitchen Klutter",
+    photoURL: "https://dl.dropboxusercontent.com/s/r1y2a0o9ypk9go5/buddha_drink.jpg?dl=0",
+    category: "Miscellaneous",
     action: "Donate"
   },
   {
-    description: "Cheese Koozie",
-    project: "Spring Cleaning 2017",
-    photoURL: "http://i.imgur.com/cheese-koozie.jpg",
+    description: "Star Light",
+    project: "Kitchen Klutter",
+    photoURL: "https://dl.dropboxusercontent.com/s/xa2u9wn0irwhpmf/star_light.jpg?dl=0",
     category: "Miscellaneous",
-    upVotes: 2,
-    downVotes: 10,
     action: "Throw Away"
   },
   {
-    description: "Employee of the Month DVD",
-    project: "Spring Cleaning 2017",
-    photoURL: "http://i.imgur.com/employee-dvd.jpg",
-    category: "Media",
-    upVotes: 1,
-    downVotes: 4,
+    description: "Tevas",
+    project: "Closet Chaos",
+    photoURL: "https://dl.dropboxusercontent.com/s/hnexan9fvs87rpx/tevas.jpg?dl=0",
+    category: "Shoes",
     action: "Donate"
   }
 ];
@@ -55,15 +45,22 @@ var items_list = [
 
 var projects_list = [
   {
-    name: "Organize Garage",
-    description: "Get rid of some unused stuff in the garage so I can make room for a sweet new mountain bike.",
-    photoURL: "http://i.imgur.com/adfasfasdf.jpg",
-    startDate: "7/20/2016",
-    numDaysToComplete: 20
+    name: "Kitchen Klutter",
+    description: "Make my kitchen look more like something you would see on HGTV (the after versions)",
+    photoURL: "https://dl.dropboxusercontent.com/s/o20pipqw54oukcq/project_kitchen_klutter.png?dl=0",
+    startDate: "5/1/2017",
+    numDaysToComplete: 30
   },
   {
-    name: "Spring Cleaning 2017",
-    description: "I want to get rid of a bunch of extra clutter in the closets and on the shelves.",
+    name: "Closet Chaos",
+    description: "I want to get rid of a bunch of extra clutter in the closets and on the shelves",
+    photoURL: "http://i.imgur.com/adfasfasdf.jpg",
+    startDate: "5/4/2017",
+    numDaysToComplete: 14
+  },
+  {
+    name: "Garage Cleanout 2017",
+    description: "Donate or sell some unused items in storage in the garage",
     photoURL: "http://i.imgur.com/adfasfasdf.jpg",
     startDate: "3/4/2017",
     numDaysToComplete: 14
