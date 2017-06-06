@@ -4,7 +4,6 @@ $(document).ready(function() {
 
   console.log("JQuery is working!");
 
-
   // TEST CODE
   // ---------
 
@@ -50,13 +49,6 @@ $(document).ready(function() {
   // END OF TEST CODE
   // ----------------
 
-
-  /*
-  **********************************************************
-  * OPAQUE NAVBAR SCRIPT
-  **********************************************************
-  */
-
   // Toggle tranparent navbar when the user scrolls the page
   $(window).scroll(function() {
     if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
@@ -67,7 +59,16 @@ $(document).ready(function() {
     }
   });
 
+  // Navbar dropdown menu
   $('.dropdown-toggle').dropdown();
+
+  // Project  Modal
+  // $('.project').on('click', '.add-project', handleAddNewProject)
+  // $('.project').modal(options);
+
+  // Items Page Click Event
+  // $('.items-list').on('click', '.add-item', handleAddNewItem)
+  // $('.items-list').on('click', '.delete-item', handleDeleteItemClick);
 
 
 
@@ -78,7 +79,64 @@ $('.project').modal({
   fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
 });
 
+// Render Items
+$.ajax({
+  method: 'GET',
+  url: '/api/items',
+  success: renderMultipleItems
+});
 
+<<<<<<< HEAD
+function renderMultipleItems(items) {
+  items.forEach(function(item) {
+    renderItem(item);
+  });
+}
+
+$('#item-modal').on('submit', function(e) {
+  e.preventDefault();
+  var formData = $(this).serialize();
+  console.log('formData', formData);
+  $.post('/api/items', formData, function(item) {
+    console.log('item after POST', item);
+    renderItem(item);  //render the server's response
+  });
+  $(this).trigger("reset");
+});
+
+var $itemModal = $('#item-modal');
+
+console.log($itemModal.description);
+
+function renderItem(item) {
+
+  var itemsHtml = (`
+    <!-- items container! -->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <!-- image frame -->
+          <div class="row" data-items-id="${item._id}">
+            <div class="col-md-10 col-md-offset-1 items-header">
+              <span class='item-description'>${item.description}<br>${item.category}</span>
+            </div>
+            <div class="col-md-10 col-md-offset-1 items-image">
+              <img src="${item.photoURL}" alt="item image">
+            </div>
+          </div>
+          <!-- yes or no box -->
+          <div class='panel-footer'>
+            <div class='panel-footer'>
+              <button class='btn btn-primary yes'>Yes!</button>
+              <button class='btn btn-danger no!'>No!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `);
+    $('#items-list').prepend(itemsHtml);
+}
 // function to add/save a new project to the database
 function createNewProject(projectObj) {
 
@@ -206,6 +264,8 @@ function getRemainingDaysStr(projectID) {
       var startDate = json[0].startDate;
       var numDaysToComplete = json[0].numDaysToComplete;
 
+      console.log("start date:", startDate);
+      console.log("days to complete:", numDaysToComplete);
       // convert the start date into a moment object
       var startDate = moment(Date.parse(startDate));
 
@@ -240,6 +300,4 @@ function getRemainingDaysStr(projectID) {
     }
 
   });
-
-
 }

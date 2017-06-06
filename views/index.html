@@ -19,16 +19,11 @@
   <!-- APPLICATION SCRIPTS -->
   <script src="/scripts/app.js"></script>
 
-
 </head>
 
 <body>
 
-  <!--
-    ********************************************************************
-    * Responsive Transparent Navbar
-    ********************************************************************
-    -->
+  <!-- Responsive Transparent NavBar-->
   <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
     <div class="container">
       <div class="navbar-header">
@@ -41,11 +36,9 @@
         <div class="nav navbar-nav pull-right">
           <a class="navbar-brand" href="#" data-toggle="dropdown" class="dropdown-toggle">My Projects<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">New Project</a></li>
-            <li><a href="#">Project Spring</a></li>
-            <li><a href="#">Project Kitchen</a></li>
-            <li><a href="#">Project Garage</a></li>
-            <ul>
+            <li><a href="#"><span class="new-project">New Project</span></span></a></li>
+            <li><a href="./items.html">Project: Do I need this?</a></li>
+          <ul>
         </div>
       </div>
     </div>
@@ -57,19 +50,20 @@
         <h1>Your stuff isn't paying rent.<br>Don't let your stuff become the other roommate.<br> Take back the SPACE!</h1>
 
         <!-- Button trigger modal -->
-        <button class="btn btn-primary btn-lg start" data-toggle="modal" data-target="#myModalNorm">Lets get started!</button>
+        <button class="btn btn-primary btn-lg start" data-toggle="modal" data-target="#project-modal">Lets get started!</button>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade" id="project-modal" tabindex="-1" role="dialog" aria-labelledby="myProjectLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
+
               <!-- Modal Header -->
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                   <span aria-hidden="true">&times;</span>
                   <span class="sr-only">Close</span>
                 </button>
-                <h4 class="modal-title" id="myModalLabel">New DeCrapify Project</h4>
+                <h4 class="modal-title" id="myProjectLabel">New DeCrapify Project</h4>
               </div>
 
               <!-- Modal Body -->
@@ -77,11 +71,11 @@
                 <form role="form">
                   <div class="form-group">
                     <label for="project name">Project name</label>
-                    <input type="email" class="form-control" id="" placeholder="name" />
+                    <input type="text" class="form-control" id="" placeholder="name">
                   </div>
                   <div class="form-group">
                     <label for="project description">Project Description</label>
-                    <input type="password" class="form-control" id="" placeholder="description" />
+                    <input type="text" class="form-control" id="" placeholder="description">
                   </div>
                   <button type="submit" class="btn btn-default">Submit</button>
                 </form>
@@ -90,7 +84,6 @@
               <!-- Modal Footer -->
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
