@@ -92,20 +92,20 @@ function renderMultipleItems(items) {
   });
 }
 
-$('#item-modal').on('submit', function(e) {
+$(document).on("submit", "#item-modal", function(e){
   e.preventDefault();
-  var formData = $(this).serialize();
-  console.log('formData', formData);
-  $.post('/api/items', formData, function(item) {
-    console.log('item after POST', item);
-    renderItem(item);  //render the server's response
-  });
-  $(this).trigger("reset");
+  console.log("items to be added");
+  var newItem = {
+    description: $("#description").val(),
+    project: $("#project").val(),
+    photoURL: $("#photoURL").val(),
+    category: $("#category").val(),
+    };
+  console.log(newItem);
+  $(".item-form").trigger("reset");
+  $("#item-modal").modal('hide');
+  renderItem(newItem);
 });
-
-var $itemModal = $('#item-modal');
-
-console.log($itemModal.description);
 
 function renderItem(item) {
 
@@ -136,6 +136,7 @@ function renderItem(item) {
     `);
     $('#items-list').prepend(itemsHtml);
 }
+
 // function to add/save a new project to the database
 function createNewProject(projectObj) {
 
