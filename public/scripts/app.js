@@ -86,7 +86,6 @@ $.ajax({
   success: renderMultipleItems
 });
 
-<<<<<<< HEAD
 function renderMultipleItems(items) {
   items.forEach(function(item) {
     renderItem(item);
