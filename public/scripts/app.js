@@ -94,16 +94,17 @@ function renderMultipleItems(items) {
 
 $(document).on("submit", "#item-modal", function(e){
   e.preventDefault();
-  console.log("items to be added");
+
   var newItem = {
     description: $("#description").val(),
     project: $("#project").val(),
     photoURL: $("#photoURL").val(),
     category: $("#category").val(),
     };
-  console.log(newItem);
-  $(".item-form").trigger("reset");
+
+  $(".form").trigger("reset");
   $("#item-modal").modal('hide');
+  createNewItem(newItem);
   renderItem(newItem);
 });
 
@@ -111,28 +112,28 @@ function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
-    <div class="col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <!-- image frame -->
-          <div class="row" data-items-id="${item._id}">
-            <div class="col-md-10 col-md-offset-1 items-header">
-              <span class='item-description'>${item.description}<br>${item.category}</span>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <!-- image frame -->
+            <div class="row" data-items-id="${item._id}">
+              <div class="col-md-10 col-md-offset-1 items-header">
+                <span class='item-description'>${item.description}<br>${item.category}</span>
+              </div>
+              <div class="col-md-10 col-md-offset-1 items-image">
+                <img src="${item.photoURL}" alt="item image">
+              </div>
             </div>
-            <div class="col-md-10 col-md-offset-1 items-image">
-              <img src="${item.photoURL}" alt="item image">
-            </div>
-          </div>
-          <!-- yes or no box -->
-          <div class='panel-footer'>
+            <!-- yes or no box -->
             <div class='panel-footer'>
-              <button class='btn btn-primary yes'>Yes!</button>
-              <button class='btn btn-danger no!'>No!</button>
+              <div class='panel-footer'>
+                <button class='btn btn-primary yes'>Yes!</button>
+                <button class='btn btn-danger no!'>No!</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     `);
     $('#items-list').prepend(itemsHtml);
 }
