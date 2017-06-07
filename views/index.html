@@ -36,8 +36,7 @@
         <div class="nav navbar-nav pull-right">
           <a class="navbar-brand" href="#" data-toggle="dropdown" class="dropdown-toggle">My Projects<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#"><span class="new-project">New Project</span></span></a></li>
-            <li><a href="./items.html">Project: Do I need this?</a></li>
+            <li><a href="#" id="new-project-dropdown-item">New Project</a></li>
           <ul>
         </div>
       </div>
@@ -71,19 +70,26 @@
                 <form role="form">
                   <div class="form-group">
                     <label for="project name">Project name</label>
-                    <input type="text" class="form-control" id="" placeholder="name">
+                    <input type="text" class="form-control" id="new-project-name" placeholder="name">
                   </div>
                   <div class="form-group">
                     <label for="project description">Project Description</label>
-                    <input type="text" class="form-control" id="" placeholder="description">
+                    <input type="text" class="form-control" id="new-project-description" placeholder="description">
                   </div>
-                  <button type="submit" class="btn btn-default">Submit</button>
+                  <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="text" class="form-control" id="new-project-photo" placeholder="link to before photo (url)">
+                  </div>
+                  <div class="form-group">
+                    <label for="num days to complete">Days To Complete</label>
+                    <input type="text" class="form-control" id="new-project-days" placeholder="number of days to complete">
+                  </div>
                 </form>
               </div>
 
               <!-- Modal Footer -->
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="save-project">Save</button>
               </div>
             </div>
           </div>
