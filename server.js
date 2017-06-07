@@ -17,6 +17,10 @@ app.get('/', function homepage(req, res) {
    res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/projects/:id/items', function homepage(req, res) {
+   res.sendFile(__dirname + '/public/items.html');
+});
+
 // ITEMS
 // -----
 
