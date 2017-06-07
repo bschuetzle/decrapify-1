@@ -409,9 +409,9 @@ function deleteItem(itemID) {
 
 $(document).on('click', '#trash', function(e) {
   console.log("deleteworks");
-  var item_id = $(this).data('itemsId');
+  var item_id = $(this).data('items-id');
   deleteItem(item_id);
-  $('div[data-item-id=' + item_id + ']').remove();
+  $('div[data-items-id=' + item_id + ']').remove();
 });
 
 
