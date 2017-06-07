@@ -194,49 +194,52 @@ function renderMultipleItems(items) {
   });
 }
 
-$('#item-modal').on('submit', function(e) {
+$(document).on("submit", "#item-modal", function(e){
   e.preventDefault();
-  var formData = $(this).serialize();
-  console.log('formData', formData);
-  $.post('/api/items', formData, function(item) {
-    console.log('item after POST', item);
-    renderItem(item);  //render the server's response
-  });
-  $(this).trigger("reset");
+
+  var newItem = {
+    description: $("#description").val(),
+    project: $("#project").val(),
+    photoURL: $("#photoURL").val(),
+    category: $("#category").val(),
+    };
+
+  $(".form").trigger("reset");
+  $("#item-modal").modal('hide');
+  createNewItem(newItem);
+  renderItem(newItem);
 });
-
-var $itemModal = $('#item-modal');
-
-console.log($itemModal.description);
 
 function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
-    <div class="col-md-3">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <!-- image frame -->
-          <div class="row" data-items-id="${item._id}">
-            <div class="col-md-10 col-md-offset-1 items-header">
-              <span class='item-description'>${item.description}<br>${item.category}</span>
+      <div class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <!-- image frame -->
+            <div class="row" data-items-id="${item._id}">
+              <div class="col-md-10 col-md-offset-1 items-header">
+                <span class='item-description'>${item.description}<br>${item.category}</span>
+              </div>
+              <div class="col-md-10 col-md-offset-1 items-image">
+                <img src="${item.photoURL}" alt="item image">
+              </div>
             </div>
-            <div class="col-md-10 col-md-offset-1 items-image">
-              <img src="${item.photoURL}" alt="item image">
-            </div>
-          </div>
-          <!-- yes or no box -->
-          <div class='panel-footer'>
+            <!-- yes or no box -->
             <div class='panel-footer'>
               <!--${item.upVotes}<button class='btn btn-primary yes'>Yes!</button>-->
               <!--<button class='btn btn-danger no!'>No!</button>${item.downVotes}-->
               <button type="button" class="btn btn-default btn-up-votes"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  ${item.upVotes}  </button>
               <button type="button" class="btn btn-default btn-down-votes"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  ${item.downVotes}  </button>
+              <div class='panel-footer'>
+                <button class='btn btn-primary yes'>Yes!</button>
+                <button class='btn btn-danger no!'>No!</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     `);
     $('#items-list').prepend(itemsHtml);
 }
