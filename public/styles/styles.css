@@ -125,6 +125,10 @@ ul.dropdown-menu {
   display: inline-block;
 }
 
+.items-box img {
+  min-height: 250px;
+}
+
 .add-item {
   padding: inherit;
 }
@@ -138,7 +142,6 @@ ul.dropdown-menu {
 }
 
 img {
-    min-height: 250px;
     max-width: 100%;
     max-height: 100%;
     margin-bottom: 20px;
