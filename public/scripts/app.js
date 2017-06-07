@@ -1,5 +1,6 @@
 console.log("javascript is working!");
 
+
 $(document).ready(function() {
 
   console.log("JQuery is working!");
@@ -62,15 +63,6 @@ $(document).ready(function() {
   // Navbar dropdown menu
   $('.dropdown-toggle').dropdown();
 
-  // Project  Modal
-  // $('.project').on('click', '.add-project', handleAddNewProject)
-  // $('.project').modal(options);
-
-  // Items Page Click Event
-  // $('.items-list').on('click', '.add-item', handleAddNewItem)
-  // $('.items-list').on('click', '.delete-item', handleDeleteItemClick);
-
-
 
 });
 
@@ -79,7 +71,7 @@ $('.project').modal({
   fadeDelay: 1.75 // Will fade in 750ms after the overlay finishes.
 });
 
-// Render Items
+// Render All the Items
 $.ajax({
   method: 'GET',
   url: '/api/items',
@@ -112,13 +104,14 @@ function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
-      <div class="col-md-3">
+      <div class="col-md-3 item-thingy" data-items-id="${item._id}">
         <div class="panel panel-default">
           <div class="panel-body">
             <!-- image frame -->
-            <div class="row" data-items-id="${item._id}">
+            <div class="row">
               <div class="col-md-10 col-md-offset-1 items-header">
                 <span class='item-description'>${item.description}<br>${item.category}</span>
+                <button type="button" id="trash" class="btn btn-default btn-sm" data-items-id="${item._id}"><span class="glyphicon glyphicon-trash"></span>Trash</button>
               </div>
               <div class="col-md-10 col-md-offset-1 items-image">
                 <img src="${item.photoURL}" alt="item image">
@@ -194,7 +187,6 @@ function createNewItem(itemObj) {
 
 }
 
-
 // function to delete an item from the database
 function updateItem(itemID, itemObj) {
 
@@ -210,9 +202,7 @@ function updateItem(itemID, itemObj) {
       console.log("error updating item");
     }
   });
-
 }
-
 
 // function to delete an item from the database
 function deleteItem(itemID) {
@@ -228,8 +218,14 @@ function deleteItem(itemID) {
       console.log("error deleting item");
     }
   });
-
 }
+
+$(document).on('click', '#trash', function(e) {
+  console.log("deleteworks");
+  var item_id = $(this).data('itemsId');
+  deleteItem(item_id);
+  $('div[data-item-id=' + item_id + ']').remove();
+});
 
 
 // function to get all items that belong to a project
