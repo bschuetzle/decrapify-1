@@ -228,6 +228,7 @@ function renderItem(item) {
             </div>
             <!-- yes or no box -->
             <div class='panel-footer'>
+
               <!--${item.upVotes}<button class='btn btn-primary yes'>Yes!</button>-->
               <!--<button class='btn btn-danger no!'>No!</button>${item.downVotes}-->
               <button type="button" class="btn btn-default btn-up-votes"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  ${item.upVotes}  </button>
@@ -243,6 +244,7 @@ function renderItem(item) {
     `);
     $('#items-list').prepend(itemsHtml);
 }
+
 
 
 
