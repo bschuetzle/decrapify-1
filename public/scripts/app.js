@@ -3,6 +3,8 @@ console.log("javascript is working!");
 var itemID;
 
 
+var itemToUpdate;
+var updatedItem;
 
 $(document).ready(function() {
 
@@ -98,7 +100,17 @@ $(document).ready(function() {
   // Navbar dropdown menu
   $('.dropdown-toggle').dropdown();
 
+});
 
+// open the update the modal item
+$(document).on("click", "#edit", function(e) {
+  var itemID = $(this).attr('data-items-id');
+  itemToUpdate = itemID;
+  $('#edit-item-modal').data('items-id');
+  $('#edit-item-modal').modal({
+    fadeDuration: 1000,
+    fadeDelay: 1.75
+  });
 });
 
 
@@ -272,16 +284,19 @@ function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
-      <div class="col-md-3 item-thingy" data-items-id="${item._id}">
+      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 itemThing" data-items-id="${item._id}">
         <div class="panel panel-default">
           <div class="panel-body">
             <!-- image frame -->
             <div class="row">
-              <div class="col-md-10 col-md-offset-1 items-header">
+              <div class="items-header">
+                <div class="icon-boxes">
+                  <button type="button" id="edit" class="btn btn-default btn-sm icons" data-items-id="${item._id}"><span class="glyphicon glyphicon-pencil"></span></button>
+                  <button type="button" id="trash" class="btn btn-default btn-sm icons" data-items-id="${item._id}"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
                 <span class='item-description'>${item.description}<br>${item.category}</span>
-                <button type="button" id="trash" class="btn btn-default btn-sm" data-items-id="${item._id}"><span class="glyphicon glyphicon-trash"></span>Trash</button>
               </div>
-              <div class="col-md-10 col-md-offset-1 items-image">
+              <div class="items-image">
                 <img src="${item.photoURL}" alt="item image">
               </div>
             </div>
@@ -381,15 +396,8 @@ function displayProject(projectID) {
         //console.log(`This project is now passed the due date`);
         return `This project is now passed the due date`;
       }
-
     }
-
-
   }
-
-
-
-
 }
 
 // function to add/save a new project to the database
@@ -448,7 +456,17 @@ function createNewItem(itemObj) {
 
 }
 
-// function to delete an item from the database
+function fetchAndReRenderItemId(itemID) {
+  $.get('/api/items/' + itemID, function(data) {
+    // remove the current instance of the item from the page
+    $('div[data-items-id=' + itemID + ']').remove();
+    // re-render it with updates
+    renderItem(data);
+    console.log("am i working");
+  });
+}
+
+// function to update an item from the database
 function updateItem(itemID, itemObj) {
 
   // make an ajax call to update a single item
@@ -464,6 +482,30 @@ function updateItem(itemID, itemObj) {
     }
   });
 }
+
+$(document).on('submit', '#edit-item-modal', function(e) {
+  e.preventDefault();
+  console.log("time to update");
+  console.log(itemToUpdate);
+
+  var $modal = $('#edit-item-modal');
+  var $descriptionUpdate = $modal.find("#new-description");
+  var $photoURLUpdate = $modal.find("new-photoURL");
+  var $categoryUpdate = $modal.find("new-category");
+
+  updatedItem = {
+    description: $("#new-description").val(),
+    photoURL: $("#new-photoURL").val(),
+    category: $("#new-category").val(),
+    };
+
+  $(".form").trigger("reset");
+  $("#edit-item-modal").modal('hide');
+  updateItem(itemToUpdate,updatedItem);
+  location.reload()
+});
+
+  fetchAndReRenderItemId(itemToUpdate);
 
 // function to delete an item from the database
 function deleteItem(itemID) {
@@ -482,7 +524,6 @@ function deleteItem(itemID) {
 }
 
 $(document).on('click', '#trash', function(e) {
-  console.log("deleteworks");
   var item_id = $(this).data('items-id');
   deleteItem(item_id);
   $('div[data-items-id=' + item_id + ']').remove();
