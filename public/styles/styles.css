@@ -1,3 +1,24 @@
+
+
+/*********
+* NAV-BAR
+*********/
+
+.app-title {
+  font-size: 22px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.app-dropdown {
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+
 /*********
 * BANNERS
 *********/
@@ -24,7 +45,15 @@
   font-size: 1.5em;
   margin: 100px 0px;
   background-color: rgb(213, 126, 46);
+  border: 0px;
 }
+
+.start:focus {
+  outline: none;
+  background-color: rgb(213, 126, 46);
+}
+
+
 
 .banner2 {
   background-image: url("https://media3.s-nbcnews.com/j/MSNBC/Components/Slideshows/_production/TODAY-ready/ss-140710-storage-home/ss-140710-storage-home-tease.today-ss-slide-desktop.jpg");
@@ -40,12 +69,51 @@
 }
 
 .banner2 h1 {
-  color:white;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
-.banner2 h3 {
-  color:white;
+.project-details {
+  height: 250px;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(50,50,50,0.6);
+  margin-top: 80px;
+  padding-top: 20px;
+  border-radius: 10px;
+}
+
+.project-name {
+  color: rgb(232,232,232);
+  font-size: 34px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+}
+
+.project-days-remaining {
+  color: rgb(232,232,232);
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 200;
+  padding-bottom: 30px;
+}
+
+.btn-add-item {
+  background-color: rgba(100,100,100,0.5);
+  color: rgb(232,232,232);
+  margin: 0 5px;
+}
+
+.btn-ask-friend {
+  background-color: rgba(100,100,100,0.5);
+  color: rgb(232,232,232);
+  margin: 0 5px;
+}
+
+.btn-items-buttons:focus {
+  outline: none;
+  color: rgb(232,232,232);
+  background-color: rgba(100,100,100,0.5);
 }
 
 
@@ -125,7 +193,7 @@ ul.dropdown-menu {
 .items-box {
   height: 250px;
   text-align: center;
-  margin-top: 50px;
+  margin-top: 25px;
   display: inline-block;
 }
 
@@ -160,8 +228,7 @@ img {
 }
 
 .btn-up-votes {
-  width: 75px;
-  margin: 0 10px;
+  width: 90px;
 }
 
 .btn-up-votes:hover {
@@ -169,10 +236,30 @@ img {
 }
 
 .btn-down-votes {
-  width: 75px;
-  margin: 0 10px;
+  width: 90px;
 }
 
 .btn-down-votes:hover {
   background-color: rgb(255, 173, 153);
+}
+
+.btn-up-vote-counter {
+  width: 35px;
+  text-align: center;
+}
+
+.btn-down-vote-counter {
+  width: 35px;
+}
+
+.btn-votes:focus {
+  outline: none;
+}
+
+.btn-counters:hover {
+  cursor: default;
+}
+
+.btn-counters:focus {
+  outline: none;
 }

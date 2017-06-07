@@ -6,29 +6,57 @@ var db = require('./models');
 
 var items_list = [
   {
+    description: "Aerobed",
+    project: "Closet Chaos",
+    photoURL: "https://dl.dropboxusercontent.com/s/9dyj3r31j91h8nl/aerobed.jpg?dl=0",
+    category: "Bedding",
+    action: "Donate"
+  },
+  {
+    description: "Tevas",
+    project: "Closet Chaos",
+    photoURL: "https://dl.dropboxusercontent.com/s/hnexan9fvs87rpx/tevas.jpg?dl=0",
+    category: "Shoes",
+    action: "Donate"
+  },
+  {
+    description: "Downton Abbey Box Set",
+    project: "Closet Chaos",
+    photoURL: "https://dl.dropboxusercontent.com/s/x8rc81zxnhgutr8/downton_abbey_box_set.jpg?dl=0",
+    category: "Media",
+    action: "Give To Friend"
+  },
+  {
+    description: "X-Mas Socks",
+    project: "Closet Chaos",
+    photoURL: "https://dl.dropboxusercontent.com/s/btnhme1hkk869eb/xmas_socks.jpg?dl=0",
+    category: "Clothing",
+    action: "Throw Away"
+  },
+  {
     description: "Wine Cork Cage",
-    project: "Kitchen Clutter",
+    project: "Closet Chaos",
     photoURL: "https://dl.dropboxusercontent.com/s/q2dg2ziufdg8b26/wine_cork_cage.jpg?dl=0",
     category: "Miscellaneous",
     action: "Sell"
   },
   {
     description: "Cheese Koozie",
-    project: "Kitchen Clutter",
+    project: "Closet Chaos",
     photoURL: "https://dl.dropboxusercontent.com/s/7bjb0zibl46hg09/cheese_koozie.jpg?dl=0",
     category: "Miscellaneous",
     action: "Keep"
   },
   {
     description: "Ceramic Tiki Mug",
-    project: "Kitchen Clutter",
+    project: "Closet Chaos",
     photoURL: "https://dl.dropboxusercontent.com/s/r1y2a0o9ypk9go5/buddha_drink.jpg?dl=0",
     category: "Miscellaneous",
     action: "Donate"
   },
   {
     description: "Star Light",
-    project: "Kitchen Clutter",
+    project: "Closet Chaos",
     photoURL: "https://dl.dropboxusercontent.com/s/xa2u9wn0irwhpmf/star_light.jpg?dl=0",
     category: "Miscellaneous",
     action: "Throw Away"
@@ -39,23 +67,44 @@ var items_list = [
     photoURL: "https://dl.dropboxusercontent.com/s/hnexan9fvs87rpx/tevas.jpg?dl=0",
     category: "Shoes",
     action: "Donate"
+  },
+  {
+    description: "Basketball",
+    project: "Organize Garage",
+    photoURL: "https://dl.dropboxusercontent.com/s/6dojf6cagktflrm/basketball.jpg?dl=0",
+    category: "Sporting Goods",
+    action: "Donate"
+  },
+  {
+    description: "Surfboard",
+    project: "Organize Garage",
+    photoURL: "https://dl.dropboxusercontent.com/s/x7pz7b33cdyoga8/surfboard.jpg?dl=0",
+    category: "Sporting Goods",
+    action: "Sell"
+  },
+  {
+    description: "Rollerblades",
+    project: "Organize Garage",
+    photoURL: "https://dl.dropboxusercontent.com/s/ixcvjvddqrttvcc/rollerblades.jpg?dl=0",
+    category: "Sporting Goods",
+    action: "Keep"
+  },
+  {
+    description: "Disk Golf Set",
+    project: "Organize Garage",
+    photoURL: "https://dl.dropboxusercontent.com/s/gynuxo4sjw7kmea/disk_golf_set.jpg?dl=0",
+    category: "Sporting Goods",
+    action: "Keep"
   }
 ];
 
 
 var projects_list = [
   {
-    name: "Kitchen Clutter",
-    description: "Make my kitchen look more like something you would see on HGTV (the after versions)",
-    photoURL: "https://dl.dropboxusercontent.com/s/9om4127okd4xx0v/project_kitchen_clutter2.jpeg?dl=0",
-    startDate: "5/1/2017",
-    numDaysToComplete: 30
-  },
-  {
     name: "Closet Chaos",
     description: "I want to get rid of a bunch of extra clutter in the closets and on the shelves",
     photoURL: "https://dl.dropboxusercontent.com/s/6dxvdplhesi3w09/project_closet_clutter.jpg?dl=0",
-    startDate: "5/4/2017",
+    startDate: "6/4/2017",
     numDaysToComplete: 14
   },
   {
@@ -63,7 +112,7 @@ var projects_list = [
     description: "Donate or sell some unused items in storage in the garage",
     photoURL: "https://dl.dropboxusercontent.com/s/qvxkccig75iiikr/project_garage.jpeg?dl=0",
     startDate: "3/4/2017",
-    numDaysToComplete: 14
+    numDaysToComplete: 30
   }
 ];
 
