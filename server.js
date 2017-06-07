@@ -18,7 +18,7 @@ app.get('/', function homepage(req, res) {
 });
 
 app.get('/projects/:id/items', function homepage(req, res) {
-   res.sendFile(__dirname + '/public/items.html');
+   res.sendFile(__dirname + '/public/projects.html');
 });
 
 // ITEMS

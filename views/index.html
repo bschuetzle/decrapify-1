@@ -10,6 +10,7 @@
   <!-- STYLESHEETS -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css">
+  <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Khula|Open+Sans|Roboto|Lato|Raleway">
 
   <!-- VENDOR SCRIPTS -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -30,25 +31,26 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
             <span class="glyphicon glyphicon-chevron-right" style="color:white;"></span>
           </button>
-        <a class="navbar-brand" href="#">DeCrapify</a>
+        <a class="navbar-brand app-title" href="/">DeCrapify</a>
       </div>
       <div class="collapse navbar-collapse" id="navMain">
         <div class="nav navbar-nav pull-right">
-          <a class="navbar-brand" href="#" data-toggle="dropdown" class="dropdown-toggle">My Projects<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" id="new-project-dropdown-item">New Project</a></li>
-            <li><a href="#"><span class="new-project">New Project</span></span></a></li>
-            <li><a href="./projects.html">Project: Do I need this?</a></li>
-          <ul>
+            <a class="navbar-brand dropdown-toggle app-dropdown" href="#" data-toggle="dropdown">My Projects<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" id="new-project-dropdown-item">New Project</a></li>
+            <ul>
         </div>
       </div>
     </div>
   </div>
+  <!-- End Responsive Transparent NavBar-->
 
+  <!-- Banner With Image and Intro-->
   <section class="banner">
     <div class="container-fluid">
       <div class="row">
         <h1>Your stuff isn't paying rent.<br>Don't let your stuff become the other roommate.<br> Take back the SPACE!</h1>
+
 
         <!-- Button trigger modal -->
         <button class="btn btn-primary btn-lg start" data-toggle="modal" data-target="#project-modal">Lets get started!</button>
@@ -96,6 +98,7 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>

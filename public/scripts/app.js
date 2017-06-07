@@ -1,5 +1,7 @@
 
 console.log("javascript is working!");
+var itemID;
+
 
 
 $(document).ready(function() {
@@ -109,6 +111,67 @@ $(document).on("click", "#new-project-dropdown-item", function(e) {
 });
 
 
+$(document).on("click", ".btn-add-item", function(e) {
+
+  console.log("add item button clicked");
+
+  $('#item-modal').modal({
+    fadeDuration: 1000,
+    fadeDelay: 1.75
+  });
+
+})
+
+
+$(document).on("click", ".btn-ask-friend", function(e) {
+
+  alert("message sent!");
+
+})
+
+
+
+
+// click event handler for up vote buttons
+$(document).on("click", ".btn-up-votes", function(e) {
+  var itemID = $(this).attr('data-items-id');
+  var $countEl = $(this).closest(".panel-footer").find(".btn-up-vote-counter").first();
+  var voteCount = $countEl.text().trim();
+  var newVoteCount = parseInt(voteCount) + 1;
+
+  console.log("clicked on up vote button for item id:", itemID);
+  console.log("vote count:",voteCount);
+  console.log("new vote count:",newVoteCount);
+  console.log("count element:", $countEl);
+  $countEl.text(`  ${newVoteCount}  `);
+
+  itemObj = { upVotes: newVoteCount };
+  updateItem(itemID, itemObj);
+
+});
+
+// click event handler for down vote buttons
+$(document).on("click", ".btn-down-votes", function(e) {
+  var itemID = $(this).attr('data-items-id');
+  var $countEl = $(this).closest(".panel-footer").find(".btn-down-vote-counter").first();
+  var voteCount = $countEl.text().trim();
+  var newVoteCount = parseInt(voteCount) + 1;
+
+  console.log("clicked on down vote button for item id:", itemID);
+  console.log("vote count:",voteCount);
+  console.log("new vote count:",newVoteCount);
+  console.log("count element:", $countEl);
+  $countEl.text(`  ${newVoteCount}  `);
+
+  itemObj = { downVotes: newVoteCount };
+  updateItem(itemID, itemObj);
+
+});
+
+
+
+
+
 // when the Save button within the create new project modal is clicked, call the start new project function
 // to create/save the project in the database, get the items html and update it with the project details (name, photo, etc.)
 $(document).on("click", "#save-project", function(e){
@@ -194,9 +257,12 @@ $(document).on("submit", "#item-modal", function(e){
     project: $("#project").val(),
     photoURL: $("#photoURL").val(),
     category: $("#category").val(),
+    upVotes: 0,
+    downVotes: 0
     };
 
   $(".form").trigger("reset");
+  $(".form-item-modal").trigger('reset');
   $("#item-modal").modal('hide');
   createNewItem(newItem);
   renderItem(newItem);
@@ -224,18 +290,26 @@ function renderItem(item) {
 
               <!--${item.upVotes}<button class='btn btn-primary yes'>Yes!</button>-->
               <!--<button class='btn btn-danger no!'>No!</button>${item.downVotes}-->
-              <button type="button" class="btn btn-default btn-up-votes"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  ${item.upVotes}  </button>
-              <button type="button" class="btn btn-default btn-down-votes"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  ${item.downVotes}  </button>
-              <div class='panel-footer'>
-                <button class='btn btn-primary yes'>Yes!</button>
-                <button class='btn btn-danger no!'>No!</button>
+
+
+              <div class="btn-group" role="group">
+                <!-- Keep / Up Votes -->
+                <button type="button" class="btn btn-default btn-counters btn-up-vote-counter disabled" data-items-id="${item._id}">${item.upVotes}</button>
+                <button type="button" class="btn btn-default btn-votes btn-up-votes" data-items-id="${item._id}"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>   Keep</button>
               </div>
+
+              <!-- Let Go / Down Votes -->
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default btn-votes btn-down-votes" data-items-id="${item._id}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>   Let Go</button>
+                <button type="button" class="btn btn-default btn-counters btn-down-vote-counter disabled" data-items-id="${item._id}">${item.downVotes}</button>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     `);
-    $('#items-list').prepend(itemsHtml);
+    $('#items-list').append(itemsHtml);
 }
 
 
