@@ -18,6 +18,7 @@ At the end of the project you will be able to see the tally of the up votes and 
 
 ## Planned New Features
 
+* Invite friend via text and/or e-mail.
 * Logins/Authentication with roles, so that only certain people can perform certain actions (friends cannot delete or update items, only vote, and only vote on each item once).
 * Friends can post comments on items.
 * Friends can claim items that they would like to take (first come first serve).
