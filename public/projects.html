@@ -52,56 +52,58 @@
           <button type="button" class="btn btn-default btn-items-buttons btn-add-item"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Add Item</button>
           <button type="button" class="btn btn-default btn-items-buttons btn-ask-friend"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>  Ask Friend</button>
         </div>
+
+
+        <!-- Projects Modal -->
+        <div class="modal fade" id="project-modal" tabindex="-1" role="dialog" aria-labelledby="myProjectLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                  <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myProjectLabel">New DeCrapify Project</h4>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body project">
+                <form role="form">
+                  <div class="form-group">
+                    <label for="project name">Project name</label>
+                    <input type="text" class="form-control" id="new-project-name" placeholder="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="project description">Project Description</label>
+                    <input type="text" class="form-control" id="new-project-description" placeholder="description">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="text" class="form-control" id="new-project-photo" placeholder="link to before photo (url)">
+                  </div>
+                  <div class="form-group">
+                    <label for="num days to complete">Days To Complete</label>
+                    <input type="text" class="form-control" id="new-project-days" placeholder="number of days to complete">
+                  </div>
+                </form>
+              </div>
+
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save-project">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </section>
 
 
-
-  <!-- Projects Modal -->
-  <div class="modal fade" id="project-modal" tabindex="-1" role="dialog" aria-labelledby="myProjectLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">
-            <span aria-hidden="true">&times;</span>
-            <span class="sr-only">Close</span>
-          </button>
-          <h4 class="modal-title" id="myProjectLabel">New DeCrapify Project</h4>
-        </div>
-
-        <!-- Modal Body -->
-        <div class="modal-body project">
-          <form role="form">
-            <div class="form-group">
-              <label for="project name">Project name</label>
-              <input type="text" class="form-control" id="new-project-name" placeholder="name">
-            </div>
-            <div class="form-group">
-              <label for="project description">Project Description</label>
-              <input type="text" class="form-control" id="new-project-description" placeholder="description">
-            </div>
-            <div class="form-group">
-              <label for="photo">Photo</label>
-              <input type="text" class="form-control" id="new-project-photo" placeholder="link to before photo (url)">
-            </div>
-            <div class="form-group">
-              <label for="num days to complete">Days To Complete</label>
-              <input type="text" class="form-control" id="new-project-days" placeholder="number of days to complete">
-            </div>
-          </form>
-        </div>
-
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" id="save-project">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End of Projects Modal -->
 
 
 <!--items-modal-->
@@ -128,10 +130,6 @@
             <div class="form-group">
               <label for="description">description</label>
               <input type="text" class="form-control" id="description" placeholder="description" />
-            </div>
-            <div class="form-group">
-              <label for="project">project</label>
-              <input type="text" class="form-control" id="project" placeholder="project" />
             </div>
             <div class="form-group">
               <label for="photo url">image url</label>

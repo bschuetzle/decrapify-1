@@ -129,7 +129,8 @@
 }
 
 .opaque-navbar.opaque {
-    background-color: rgba(68, 71, 83, 0.53);
+    /*background-color: rgba(68, 71, 83, 0.53);*/
+    background-color: black;
     height: 60px;
     transition: background-color .5s ease 0s;
 }
@@ -197,6 +198,10 @@ ul.dropdown-menu {
   display: inline-block;
 }
 
+.panel-default {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .panel-body {
   padding-top: 5px;
 }
@@ -236,6 +241,7 @@ img {
 
 #new-project-dropdown-item {
   font-weight: 800;
+  color: rgb(204, 122, 0);
 }
 
 .btn-up-votes {
@@ -265,6 +271,7 @@ img {
 
 .btn-votes:focus {
   outline: none;
+  background-color: white;
 }
 
 .btn-counters:hover {

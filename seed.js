@@ -13,7 +13,7 @@ var items_list = [
     action: "Donate"
   },
   {
-    description: "Tevas",
+    description: "Teva Sandals",
     project: "Closet Chaos",
     photoURL: "https://dl.dropboxusercontent.com/s/hnexan9fvs87rpx/tevas.jpg?dl=0",
     category: "Shoes",
@@ -62,13 +62,6 @@ var items_list = [
     action: "Throw Away"
   },
   {
-    description: "Tevas",
-    project: "Closet Chaos",
-    photoURL: "https://dl.dropboxusercontent.com/s/hnexan9fvs87rpx/tevas.jpg?dl=0",
-    category: "Shoes",
-    action: "Donate"
-  },
-  {
     description: "Basketball",
     project: "Organize Garage",
     photoURL: "https://dl.dropboxusercontent.com/s/6dojf6cagktflrm/basketball.jpg?dl=0",
@@ -105,14 +98,14 @@ var projects_list = [
     description: "I want to get rid of a bunch of extra clutter in the closets and on the shelves",
     photoURL: "https://dl.dropboxusercontent.com/s/6dxvdplhesi3w09/project_closet_clutter.jpg?dl=0",
     startDate: "6/4/2017",
-    numDaysToComplete: 14
+    numDaysToComplete: 30
   },
   {
     name: "Organize Garage",
     description: "Donate or sell some unused items in storage in the garage",
-    photoURL: "https://dl.dropboxusercontent.com/s/qvxkccig75iiikr/project_garage.jpeg?dl=0",
-    startDate: "3/4/2017",
-    numDaysToComplete: 30
+    photoURL: "https://dl.dropboxusercontent.com/s/mhihge91hf892hp/project_garage_cleanup.jpg?dl=0",
+    startDate: "5/1/2016",
+    numDaysToComplete: 20
   }
 ];
 
