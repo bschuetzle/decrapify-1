@@ -13,6 +13,10 @@ app.use(express.static('public'));
  * ROUTES *
  **********/
 
+// Serve static files from the `/public` directory:
+// i.e. `/images`, `/scripts`, `/styles`
+app.use(express.static('public'));
+
 app.get('/', function homepage(req, res) {
    res.sendFile(__dirname + '/views/index.html');
 });

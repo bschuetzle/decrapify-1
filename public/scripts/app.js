@@ -89,7 +89,7 @@ $(document).ready(function() {
 
   // Toggle tranparent navbar when the user scrolls the page
   $(window).scroll(function() {
-    if($(this).scrollTop() > 50)  /*height in pixels when the navbar becomes non opaque*/
+    if($(this).scrollTop() > 100)  /*height in pixels when the navbar becomes non opaque*/
     {
         $('.opaque-navbar').addClass('opaque');
     } else {
@@ -249,11 +249,11 @@ function startNewProject(e) {
 }
 
 // Render Items
-$.ajax({
-  method: 'GET',
-  url: '/api/items',
-  success: renderMultipleItems
-});
+// $.ajax({
+//   method: 'GET',
+//   url: '/api/items',
+//   success: renderMultipleItems
+// });
 
 function renderMultipleItems(items) {
   items.forEach(function(item) {
@@ -266,7 +266,7 @@ $(document).on("submit", "#item-modal", function(e){
 
   var newItem = {
     description: $("#description").val(),
-    project: $("#project").val(),
+    project: $(".project-name").text(),
     photoURL: $("#photoURL").val(),
     category: $("#category").val(),
     upVotes: 0,
@@ -294,7 +294,7 @@ function renderItem(item) {
                   <button type="button" id="edit" class="btn btn-default btn-sm icons" data-items-id="${item._id}"><span class="glyphicon glyphicon-pencil"></span></button>
                   <button type="button" id="trash" class="btn btn-default btn-sm icons" data-items-id="${item._id}"><span class="glyphicon glyphicon-trash"></span></button>
                 </div>
-                <span class='item-description'>${item.description}<br>${item.category}</span>
+                <span class='item-description'>${item.description}</span>
               </div>
               <div class="items-image">
                 <img src="${item.photoURL}" alt="item image">
@@ -505,7 +505,7 @@ $(document).on('submit', '#edit-item-modal', function(e) {
   location.reload()
 });
 
-  fetchAndReRenderItemId(itemToUpdate);
+//fetchAndReRenderItemId(itemToUpdate);
 
 // function to delete an item from the database
 function deleteItem(itemID) {
