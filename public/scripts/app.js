@@ -483,25 +483,30 @@ function updateItem(itemID, itemObj) {
   });
 }
 
+// update items modal
 $(document).on('submit', '#edit-item-modal', function(e) {
   e.preventDefault();
-  console.log("time to update");
-  console.log(itemToUpdate);
 
   var $modal = $('#edit-item-modal');
-  var $descriptionUpdate = $modal.find("#new-description");
-  var $photoURLUpdate = $modal.find("new-photoURL");
-  var $categoryUpdate = $modal.find("new-category");
+  descriptionUpdate = $modal.find("#new-description").val();
+  photoURLUpdate = $modal.find("new-photoURL").val();
+  var newDescription = $("#new-description").val();
+  var imageURL = $("#new-photoURL").val();
 
-  updatedItem = {
-    description: $("#new-description").val(),
-    photoURL: $("#new-photoURL").val(),
-    category: $("#new-category").val(),
-    };
+  updatedItem = {};
+
+  if (newDescription.length > 0) {
+    updatedItem.description = newDescription;
+  }
+
+  if (imageURL.length > 0) {
+    updatedItem.photoURL = imageURL;
+  }
+
 
   $(".form").trigger("reset");
   $("#edit-item-modal").modal('hide');
-  updateItem(itemToUpdate,updatedItem);
+  updateItem(itemToUpdate, updatedItem);
   location.reload()
 });
 
