@@ -115,7 +115,6 @@ $(document).on("click", ".project-dropdown-items", function(e) {
   window.location.href = `/projects/${projectID}/items`;
 });
 
-
 // trash button to delete itom
 $(document).on('click', '#trash', function(e) {
   var item_id = $(this).data('items-id');
@@ -135,6 +134,22 @@ $(document).on('submit', '#edit-item-modal', function(e) {
   var imageURL = $("#new-photoURL").val();
 
   updatedItem = {};
+
+  if (newDescription.length > 0) {
+    updatedItem.description = newDescription;
+  }
+
+  if (imageURL.length > 0) {
+    updatedItem.photoURL = imageURL;
+  }
+
+
+  $(".form").trigger("reset");
+  $("#edit-item-modal").modal('hide');
+  updateItem(itemToUpdate, updatedItem);
+  location.reload()
+});
+
 
   if (newDescription.length > 0) {
     updatedItem.description = newDescription;
@@ -412,11 +427,11 @@ function renderItem(item) {
 
   var itemsHtml = (`
     <!-- items container! -->
-      <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3 itemThing" data-items-id="${item._id}">
+      <div class="col-md-3 cards itemThing" data-items-id="${item._id}">
         <div class="panel panel-default">
           <div class="panel-body">
             <!-- image frame -->
-            <div class="row">
+            <div>
               <div class="items-header">
                 <div class="icon-boxes">
                   <button type="button" id="edit" class="btn btn-default btn-sm icons" data-items-id="${item._id}"><span class="glyphicon glyphicon-pencil"></span></button>
@@ -446,6 +461,7 @@ function renderItem(item) {
                 <button type="button" class="btn btn-default btn-votes btn-down-votes" data-items-id="${item._id}"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>   Let Go</button>
                 <button type="button" class="btn btn-default btn-counters btn-down-vote-counter disabled" data-items-id="${item._id}">${item.downVotes}</button>
               </div>
+
 
             </div>
           </div>
